@@ -18,7 +18,7 @@ const ProjectsData = [
     title: "Photography Portfolio website",
     description: "Project 2 description",
     image: "/images/projects/4.jpg",
-    tag: ["All", "web"],
+    tag: ["All"],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -39,6 +39,10 @@ const ProjectsSection = () => {
     setTag(newTag);
   };
 
+  const filteredProjects = ProjectsData.filter((project) =>
+    project.tag.includes(tag)
+  )
+
   return (
     <>
       <h2 className="text-white text-center text-4xl font-bold mt-4">
@@ -47,22 +51,22 @@ const ProjectsSection = () => {
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={handleTagChange}
-          tag="All"
+          name="All"
           isSelected={tag === "All"}
         />
         <ProjectTag
           onClick={handleTagChange}
-          tag="web"
+          name="web"
           isSelected={tag === "web"}
         />
         <ProjectTag
           onClick={handleTagChange}
-          tag="mobile"
+          name="mobile"
           isSelected={tag === "mobile"}
         />
       </div>
       <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {ProjectsData.map((project) => (
+        {filteredProjects.map((project) => (
           <ProjectCard
             key={project.id}
             title={project.title}
