@@ -15,6 +15,7 @@ const EmailSection = () => {
       message: e.target.message.value,
     };
     const JSONdata = JSON.stringify(data);
+    console.log("datadatadata",data);
     const endpoint = "/api/send";
     const option = {
       method: "POST",
@@ -23,11 +24,26 @@ const EmailSection = () => {
       },
       body: JSONdata,
     };
-    const response = await fetch(endpoint, option);
-    const resData = await response.json();
-    if (response.status === 200) {
-      setEmailSubmitted(true)
-      console.log("Message sent.");
+    try {
+      const response = await fetch(endpoint, option);
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      // const resData = await response.json();
+      // console.log("resData", resData);
+  
+      // Assuming the server responds with a success message or data
+      if (response.status === 200) {
+        setEmailSubmitted(true);
+        console.log("Message sent.");
+        // Optionally reset the form or perform other actions upon successful submission
+        // e.target.reset();
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      // Handle the error (e.g., show a message to the user).
     }
   };
 
