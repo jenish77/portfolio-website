@@ -26,9 +26,22 @@ const Navbar = () => {
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
       <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
-        <Link href={"/"} className="text-2xl md:text-5xl text-white font-semibold">
+      <Link href={"/"} className="text-2xl md:text-5xl text-white font-semibold" style={{ 
+        textDecoration: 'none', /* Remove underline */
+        fontFamily: 'Arial, sans-serif', /* Change font */
+        letterSpacing: '1px', /* Adjust letter spacing */
+        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)', /* Add text shadow */
+        transition: 'transform 0.3s ease-in-out', /* Add transition effect */
+        display: 'inline-block', /* Display as block element */
+        border: '2px solid #9C27B0', /* Add border */
+        padding: '10px 20px', /* Add padding */
+        borderRadius: '5px', /* Add border radius */
+      }}>
+        Jenish Maru
+      </Link>
+        {/* <Link href={"/"} className="text-2xl md:text-5xl text-white font-semibold">
           LOGO
-        </Link>
+        </Link> */}
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (
             <button onClick={() => setNavbarOpen(true)} className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white">
