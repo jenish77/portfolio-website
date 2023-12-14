@@ -50,7 +50,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="text-white" style={{ marginTop: '30px' }}>
+    <section id="about" className="text-white" style={{ marginTop: '30px' }}>
       <div className="flex flex-col md:flex-row md:gap-8 items-start py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         <div className="md:w-1/2">
           <Image src="/images/about.avif" width="500" height="500" alt="loading.." />
