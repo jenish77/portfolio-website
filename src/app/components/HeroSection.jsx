@@ -38,9 +38,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg lg:text-xl mb-6">
-            Lorem ipsum, ab suscipit sapiente. Nostrum explicabo debitis in
-            magni repudiandae molestias aperiam aspernatur. Optio obcaecati
-            reiciendis voluptatum. Eligendi, aperiam!
+          Unleashing creativity through pixels and passion. I'm Jenish, a digital storyteller weaving narratives with design and code. Explore the intersection of imagination and innovation in my portfolio where every project is a canvas of possibilities.
           </p>
           <div>
             <Link href="/#contact">

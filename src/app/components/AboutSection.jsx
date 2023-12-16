@@ -12,6 +12,7 @@ const TAB_DATA = [
         <li>Node.js</li>
         <li>Express.js</li>
         <li>React.js</li>
+        <li>Next.js</li>
         <li>Mongodb</li>
         <li>Sequlize</li>
       </ul>
@@ -32,8 +33,8 @@ const TAB_DATA = [
     id: "certifications",
     content: (
       <ul className="list-disc pl-2">
-        <li>Codebit solutions</li>
         <li>Elaunch Solutions</li>
+        <li>Helsey Infotech</li>
       </ul>
     ),
   },
