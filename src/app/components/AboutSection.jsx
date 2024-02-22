@@ -62,9 +62,9 @@ const AboutSection = () => {
             <p className="text-base lg:text-lg">
               Proficient Full Stack Developer with expertise in frontend and
               backend development. Skilled in frontend technologies such as
-              HTML, CSS, and JavaScript frameworks (e.g., React, Angular), and
-              experienced in backend languages (e.g., Node.js, Python) and
-              databases (e.g., MySQL, MongoDB). Demonstrated ability to create
+              HTML, CSS, and JavaScript frameworks (e.g., React, Next), and
+              experienced in backend languages (e.g., Node.js, Nest) and
+              databases (e.g., MongoDB, MySQL). Demonstrated ability to create
               responsive user interfaces, implement functionalities, manage
               databases, and contribute to the entire software development
               lifecycle. Adaptable and innovative, adept at bridging the gap
