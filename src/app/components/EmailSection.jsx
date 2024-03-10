@@ -57,6 +57,11 @@ const EmailSection = () => {
           I'm cuurently looking for new Opportunities, my inbox is always open.
           Whether you have a question or just want to say hi, I'll try my best
           to get back to you!
+          <br />
+          <br />
+          Email: jenishmaru2002@gmail.com
+          <br />
+          Contact No: +919328090188
         </p>
         <div className="socials flex flex-row gap-2">
           <Link href="https://github.com/jenish77/">
