@@ -1,111 +1,95 @@
-"use client";
-import React, { useState, useTransition } from "react";
-import Image from "next/image";
-import TabButton from "./TabButton";
+'use client';
 
-const TAB_DATA = [
-  {
-    title: "skills",
-    id: "skills",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Node.js</li>
-        <li>Nest.js</li>
-        <li>Express.js</li>
-        <li>React.js</li>
-        <li>Next.js</li>
-        <li>Mongodb</li>
-        <li>Sequlize</li>
-      </ul>
-    ),
-  },
-  {
-    title: "Education",
-    id: "education",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Computer Engineering</li>
-        <li>Sarvajanik College of Engineering and Technology</li>
-      </ul>
-    ),
-  },
-  {
-    title: "Certifications",
-    id: "certifications",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Elaunch Solutions</li>
-        <li>Helsey Infotech</li>
-      </ul>
-    ),
-  },
-];
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { fadeInUp, staggerContainer } from '../utils/animations';
 
-const AboutSection = () => {
-  const [tab, setTab] = useState("skills");
-  const [isPending, startTransition] = useTransition();
+export default function AboutSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const handleTabChange = (id) => {
-    startTransition(() => {
-      setTab(id);
-    });
-  };
+  const stats = [
+    { label: 'Years Experience', value: '3' },
+    { label: 'Projects Completed', value: '5+' },
+    { label: 'Technologies', value: '15+' },
+  ];
 
   return (
-    <section id="about" className="text-white" style={{ marginTop: '30px' }}>
-      <div className="flex flex-col md:flex-row md:gap-8 items-start py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <div className="md:w-1/2">
-          <Image src="/images/about.avif" width="500" height="500" alt="loading.." />
-        </div>
-        <div className="md:w-1/2">
-          <div className="mt-4 md:mt-0 text-left flex flex-col">
-            <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-            <p className="text-base lg:text-lg">
-              Proficient Full Stack Developer with expertise in frontend and
-              backend development. Skilled in frontend technologies such as
-              HTML, CSS, and JavaScript frameworks (e.g., React, Next), and
-              experienced in backend languages (e.g., Node.js, Nest) and
-              databases (e.g., MongoDB, MySQL). Demonstrated ability to create
-              responsive user interfaces, implement functionalities, manage
-              databases, and contribute to the entire software development
-              lifecycle. Adaptable and innovative, adept at bridging the gap
-              between frontend and backend operations to deliver robust and
-              scalable solutions for diverse technological requirements.
+    <section id="about" className="section bg-[hsl(var(--bg-secondary))]" ref={ref}>
+      <motion.div
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={staggerContainer}
+      >
+        <motion.h2 variants={fadeInUp} className="section-title">
+          About Me
+        </motion.h2>
+
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left - Description */}
+          <motion.div variants={fadeInUp}>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              Full-Stack Software Engineer
+            </h3>
+            <p className="mb-4">
+              I'm a passionate Software Engineer with over 2 years of experience building scalable web applications 
+              and robust backend systems. Currently working at <span className="text-primary font-semibold">Elaunch Solutions</span>, 
+              where I architect high-performance backend solutions using Node.js and NestJS.
             </p>
-            <div className="flex flex-row justify-start mt-8">
-              <TabButton
-                selectTab={() => handleTabChange("skills")}
-                active={tab === "skills"}
+            <p className="mb-4">
+              My expertise lies in designing and implementing secure, scalable backend architectures with modern technologies. 
+              I've successfully improved application throughput by 75% through load balancing and PM2 clustering, and reduced 
+              deployment errors by 95% with CI/CD automation.
+            </p>
+            <p>
+              I graduated with a Bachelor's degree in Computer Engineering from <span className="text-primary font-semibold">Sarvajanik College of Engineering and Technology</span> with a CGPA of 8.39/10.
+            </p>
+          </motion.div>
+
+          {/* Right - Stats */}
+          <motion.div variants={fadeInUp} className="grid grid-cols-3 gap-4">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                variants={fadeInUp}
+                className="card text-center"
+                whileHover={{ scale: 1.05 }}
               >
-                {" "}
-                skills{" "}
-              </TabButton>
-              <TabButton
-                selectTab={() => handleTabChange("education")}
-                active={tab === "education"}
-              >
-                {" "}
-                education{" "}
-              </TabButton>
-              <TabButton
-                selectTab={() => handleTabChange("certifications")}
-                active={tab === "certifications"}
-              >
-                {" "}
-                certifications{" "}
-              </TabButton>
+                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-secondary">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Education */}
+        <motion.div variants={fadeInUp} className="mt-12 card">
+          <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+            </svg>
+            Education
+          </h3>
+          <div className="flex justify-between items-start flex-wrap gap-4">
+            <div>
+              <h4 className="font-semibold text-lg">Bachelor of Engineering in Computer Engineering</h4>
+              <p className="text-secondary">Sarvajanik College of Engineering and Technology</p>
+              <p className="text-sm text-tertiary">Surat, Gujarat</p>
             </div>
-            <div className="mt-8">
-              {TAB_DATA.find((t) => t.id === tab).content}
+            <div className="text-right">
+              <p className="font-semibold text-primary">CGPA: 8.39/10</p>
+              <p className="text-secondary">2019 - 2023</p>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
-};
-
-export default AboutSection;
-
-
-
+}
