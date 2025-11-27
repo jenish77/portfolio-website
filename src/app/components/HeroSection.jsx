@@ -143,8 +143,12 @@ export default function HeroSection() {
               
               {/* Avatar Container */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden glass-strong p-2">
-                <div className="w-full h-full rounded-full bg-gradient-primary flex items-center justify-center text-white text-6xl md:text-8xl font-bold">
-                  JM
+                <div className="w-full h-full rounded-full overflow-hidden">
+                  <img 
+                    src="/profile.png" 
+                    alt="Jenish Maru" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 
