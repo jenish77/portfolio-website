@@ -33,7 +33,7 @@ export default function AboutSection() {
               Full-Stack Software Engineer
             </h3>
             <p className="mb-4">
-              I'm a passionate Software Engineer with over 2 years of experience building scalable web applications 
+              I'm a passionate Software Engineer with over 3 years of experience building scalable web applications 
               and robust backend systems. Currently working at <span className="text-primary font-semibold">Elaunch Solutions</span>, 
               where I architect high-performance backend solutions using Node.js and NestJS.
             </p>
